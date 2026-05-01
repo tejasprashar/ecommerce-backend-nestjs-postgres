@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from '@/modules/auth/auth.module';
+import { UsersModule } from '@/modules/users/users.module';
 import appConfig from '@/config/app.config';
 import databaseConfig from '@/config/database.config';
 import jwtConfig from '@/config/jwt.config';
@@ -28,6 +30,10 @@ import jwtConfig from '@/config/jwt.config';
         synchronize: false,
       }),
     }),
+
+    AuthModule,
+
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
